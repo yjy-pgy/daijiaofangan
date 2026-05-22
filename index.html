@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医药O2O门店带教服务 · 半年执行计划表</title>
+    <style>
+        :root {
+            --primary-blue: #1e40af;
+            --primary-blue-light: #3b82f6;
+            --primary-blue-dark: #1e3a8a;
+            --secondary-green: #059669;
+            --accent-gold: #d97706;
+            --bg-gray: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-gray);
+            min-height: 100vh;
+            padding: 30px 20px;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        .container { max-width: 900px; margin: 0 auto; }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 30px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(30, 64, 175, 0.3);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .brand-icon {
+            width: 65px;
+            height: 65px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .brand-text h1 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 3px;
+            letter-spacing: -0.3px;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .header-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item { text-align: center; }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, rgba(255, 255, 255, 0.8));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.85;
+            margin-top: 3px;
+        }
+
+        .export-btn {
+            background: white;
+            color: var(--primary-blue);
+            border: none;
+            padding: 12px 32px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 28px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .export-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        }
+
+        .timeline { position: relative; }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 32px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary-blue-light), var(--secondary-green));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 85px;
+            padding-bottom: 35px;
+        }
+
+        .timeline-item:last-child { padding-bottom: 0; }
+
+        .timeline-marker {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 65px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .marker-number {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 17px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+        }
+
+        .marker-number.final {
+            background: linear-gradient(135deg, var(--accent-gold), #f59e0b);
+            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+        }
+
+        .marker-line {
+            width: 3px;
+            flex: 1;
+            background: linear-gradient(180deg, var(--primary-blue-light), transparent);
+            margin-top: 12px;
+        }
+
+        .timeline-item:last-child .marker-line { display: none; }
+
+        .timeline-content {
+            background: var(--bg-gray);
+            border-radius: 14px;
+            padding: 22px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+        }
+
+        .timeline-final .timeline-content {
+            background: linear-gradient(135deg, #fffef9, #fefcf3);
+            border-color: rgba(217, 119, 6, 0.2);
+        }
+
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        .phase-badge {
+            padding: 5px 14px;
+            border-radius: 18px;
+            font-size: 11px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .phase-badge.startup { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+        .phase-badge.product { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+        .phase-badge.operation { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+        .phase-badge.data { background: linear-gradient(135deg, #10b981, #059669); }
+        .phase-badge.growth { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .phase-badge.graduation { background: linear-gradient(135deg, #ec4899, #be185d); }
+
+        .phase-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .training-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .tag {
+            padding: 4px 12px;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            font-size: 11px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+        }
+
+        .tag.special {
+            background: linear-gradient(135deg, var(--accent-gold), #f59e0b);
+            color: white;
+            border: none;
+        }
+
+        .content-section { margin-bottom: 14px; }
+        .content-section:last-child { margin-bottom: 0; }
+
+        .content-section h3 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .content-section ul { list-style: none; }
+
+        .content-section li {
+            padding: 7px 10px;
+            margin-bottom: 5px;
+            background: white;
+            border-radius: 8px;
+            font-size: 12px;
+            color: var(--text-primary);
+            position: relative;
+            padding-left: 24px;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .content-section li:hover { border-color: var(--border-color); }
+
+        .content-section li::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 4px;
+            background: var(--primary-blue-light);
+            border-radius: 50%;
+        }
+
+        .content-section.highlight {
+            background: white;
+            border-radius: 10px;
+            padding: 14px;
+            border-left: 4px solid var(--secondary-green);
+        }
+
+        .content-section.highlight li::before { background: var(--secondary-green); }
+
+        .content-section.final-highlight {
+            border-left-color: var(--accent-gold);
+            background: linear-gradient(135deg, #fffef9, #fefcf3);
+        }
+
+        .content-section.final-highlight li::before { background: var(--accent-gold); }
+
+        .footer {
+            margin-top: 30px;
+            background: white;
+            border-radius: 14px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 12px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 20px 12px; }
+
+            .header { padding: 25px 18px; }
+
+            .brand-text h1 { font-size: 21px; }
+            .subtitle { font-size: 13px; }
+
+            .header-stats { gap: 25px; }
+            .stat-value { font-size: 26px; }
+
+            .export-btn { padding: 10px 24px; font-size: 14px; }
+
+            .content { padding: 22px 18px; }
+
+            .timeline::before { left: 20px; }
+
+            .timeline-item {
+                padding-left: 60px;
+                padding-bottom: 25px;
+            }
+
+            .marker-number {
+                width: 38px;
+                height: 38px;
+                font-size: 14px;
+            }
+
+            .phase-title { font-size: 15px; }
+
+            .footer-contact { gap: 18px; }
+            .contact-item { font-size: 12px; }
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+
+            .header {
+                box-shadow: none;
+                border: 2px solid var(--primary-blue);
+            }
+
+            .export-btn { display: none; }
+
+            .content {
+                box-shadow: none;
+                border: 1px solid var(--border-color);
+            }
+
+            .timeline-content { break-inside: avoid; }
+
+            .footer { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="brand">
+                <div class="brand-icon">♡</div>
+                <div class="brand-text">
+                    <h1>医药O2O门店带教服务</h1>
+                    <p class="subtitle">半年执行计划表</p>
+                </div>
+            </div>
+            <div class="header-stats">
+                <div class="stat-item">
+                    <div class="stat-value">6</div>
+                    <div class="stat-label">个月系统培训</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">5+</div>
+                    <div class="stat-label">核心培训模块</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">门店赋能</div>
+                </div>
+            </div>
+            <button id="exportBtn" class="export-btn" onclick="window.print()">
+                <span>📄 打印/导出</span>
+            </button>
+        </header>
+
+        <div id="content" class="content">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <span class="marker-number">01</span>
+                        <span class="marker-line"></span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="phase-header">
+                            <div class="phase-badge startup">启动与基建</div>
+                            <h2 class="phase-title">第一月：门店上线跑通（带教人：闵福明/纪天宇）</h2>
+                        </div>
+                        <div class="training-tags">
+                            <span class="tag">门店建店培训</span>
+                            <span class="tag">数智中台初培</span>
+                            <span class="tag">门店问题解决</span>
+                        </div>
+                        <div class="content-section">
+                            <h3>📚 带教内容</h3>
+                            <ul>
+                                <li>平台入驻、资质上传、店铺装修配置</li>
+                                <li>数智中台登录、角色权限配置</li>
+                                <li>基础数据看板认识与操作</li>
+                                <li>打印机对接、库存同步设置</li>
+                                <li>门店问题解决：订单处理、客户咨询、售后处理</li>
+                            </ul>
+                        </div>
+                        <div class="content-section highlight">
+                            <h3>✅ 考核目标</h3>
+                            <ul>
+                                <li>完成美团/饿了么平台开店</li>
+                                <li>中台成功登录并绑定门店</li>
+                                <li>完成打印机对接、库存同步设置</li>
+                                <li>完成门店问题解决：订单处理、客户咨询、售后处理</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <span class="marker-number">02</span>
+                        <span class="marker-line"></span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="phase-header">
+                            <div class="phase-badge product">商品与基础操作</div>
+                            <h2 class="phase-title">第二月：商品体系搭建（带教人：胡京霜）</h2>
+                        </div>
+                        <div class="training-tags">
+                            <span class="tag">门店建品培训</span>
+                            <span class="tag">平台操作培训</span>
+                            <span class="tag">作图软件培训</span>
+                        </div>
+                        <div class="content-section">
+                            <h3>📚 带教内容</h3>
+                            <ul>
+                                <li>中台商品管理：批量导入对码、商品新增、分类优化</li>
+                                <li>商品信息优化：新老包装、主图营销、详情页</li>
+                                <li>平台后台操作：上下架、库存修改、接单处理</li>
+                                <li>作图软件：PShop、Ai、美图秀秀等</li>
+                            </ul>
+                        </div>
+                        <div class="content-section highlight">
+                            <h3>✅ 考核目标</h3>
+                            <ul>
+                                <li>完成平台商品上架在售</li>
+                                <li>能独立处理商品做图</li>
+                                <li>平台非标库商品新建审核</li>
+                                <li>独立完成商品换码，新建，禁售</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <span class="marker-number">03</span>
+                        <span class="marker-line"></span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="phase-header">
+                            <div class="phase-badge operation">运营入门</div>
+                            <h2 class="phase-title">第三个月：订单与商品满足（带教人：张爱平）</h2>
+                        </div>
+                        <div class="training-tags">
+                            <span class="tag">平台操作进阶</span>
+                            <span class="tag">运营思路培训</span>
+                        </div>
+                        <div class="content-section">
+                            <h3>📚 带教内容</h3>
+                            <ul>
+                                <li>平台活动报名：满减、折扣、新客立减</li>
+                                <li>商品在售时长满足：门店缺货商品跟踪、核心商品新增</li>
+                                <li>用户评价管理与回复SOP</li>
+                                <li>运营漏斗分析：曝光→点击→转化</li>
+                                <li>中台订单分析：时段、商品、客单价</li>
+                            </ul>
+                        </div>
+                        <div class="content-section highlight">
+                            <h3>✅ 考核目标</h3>
+                            <ul>
+                                <li>独立完成一次活动配置</li>
+                                <li>商品SKU ≥ 300个（核心商品满足）</li>
+                                <li>周订单环比增长 > 20%</li>
+                                <li>输出《门店运营周报模板》</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <span class="marker-number">04</span>
+                        <span class="marker-line"></span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="phase-header">
+                            <div class="phase-badge data">数据驱动</div>
+                            <h2 class="phase-title">第四个月：效率与数据优化（带教人：张爱平/马栋标）</h2>
+                        </div>
+                        <div class="training-tags">
+                            <span class="tag">数智中台深度培训</span>
+                            <span class="tag">运营思路提升</span>
+                        </div>
+                        <div class="content-section">
+                            <h3>📚 带教内容</h3>
+                            <ul>
+                                <li>门店核心数据解读：流量、动销率、库存周转</li>
+                                <li>竞对数据调研：附近药店价格与促销</li>
+                                <li>利润核算：实收、扣点、营销、配送成本</li>
+                                <li>滞销品清理与替换策略</li>
+                                <li>商圈时段运营：夜间急用、上班族时段</li>
+                            </ul>
+                        </div>
+                        <div class="content-section highlight">
+                            <h3>✅ 考核目标</h3>
+                            <ul>
+                                <li>中台输出门店经营诊断报告</li>
+                                <li>动销率 > 60%</li>
+                                <li>夜间订单占比提升至15%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <span class="marker-number">05</span>
+                        <span class="marker-line"></span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="phase-header">
+                            <div class="phase-badge growth">增长突破</div>
+                            <h2 class="phase-title">第五个月：精细化与用户运营（带教人：张爱平）</h2>
+                        </div>
+                        <div class="training-tags">
+                            <span class="tag">运营思路高阶</span>
+                        </div>
+                        <div class="content-section">
+                            <h3>📚 带教内容</h3>
+                            <ul>
+                                <li>老客运营：客流分析、复购券、用药提醒</li>
+                                <li>组合销售：感冒套餐、胃肠套餐</li>
+                                <li>选品策略：常备药、急用、慢病、计生、器械</li>
+                                <li>季节性/疫情相关品提前备货</li>
+                                <li>中台用户画像分析应用</li>
+                            </ul>
+                        </div>
+                        <div class="content-section highlight">
+                            <h3>✅ 考核目标</h3>
+                            <ul>
+                                <li>复购率提升10%</li>
+                                <li>组合商品销售（感冒套餐、胃肠套餐）≥ 100个</li>
+                                <li>商品SKU ≥ 300个（核心商品）</li>
+                                <li>周订单环比增长 > 20%</li>
+                                <li>输出《新品补货建议》</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item timeline-final">
+                    <div class="timeline-marker">
+                        <span class="marker-number final">06</span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="phase-header">
+                            <div class="phase-badge graduation">独立运营</div>
+                            <h2 class="phase-title">第六个月：带教结业与持续支持（带教人：张爱平）</h2>
+                        </div>
+                        <div class="training-tags">
+                            <span class="tag special">综合复盘 + 远程支持</span>
+                        </div>
+                        <div class="content-section">
+                            <h3>📚 带教内容</h3>
+                            <ul>
+                                <li>全模块复盘考试（实操+案例）</li>
+                                <li>门店自诊断能力培养</li>
+                                <li>门店运营能力提升</li>
+                                <li>转入长期答疑群 + 月度数据预警</li>
+                            </ul>
+                        </div>
+                        <div class="content-section highlight final-highlight">
+                            <h3>🏆 结业考核</h3>
+                            <ul>
+                                <li>通过结业考核（≥80分）</li>
+                                <li>门店月订单目标达成率≥90%</li>
+                                <li>可独立完成运营日报/月报</li>
+                                <li>提交《半年经营总结与计划》</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-contact">
+                <div class="contact-item">📞 咨询热线：18626250995</div>
+                <div class="contact-item">✉️ 邮箱：18626250995@163.com</div>
+                <div class="contact-item">⏰ 服务时间：周一至周五 9:00-17:00</div>
+            </div>
+            <div class="footer-copyright">© 2026 江苏易加云网络科技有限公司版权所有</div>
+        </footer>
+    </div>
+</body>
+</html>
