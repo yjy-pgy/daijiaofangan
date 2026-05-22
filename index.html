@@ -34,14 +34,30 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) rotate(-45deg);
-            font-size: 80px;
+            font-size: 120px;
             font-weight: 700;
-            color: rgba(200, 200, 200, 0.12);
+            color: rgba(180, 180, 180, 0.25);
             white-space: nowrap;
             pointer-events: none;
             z-index: 0;
             user-select: none;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
         }
+
+        .watermark-corner {
+            position: fixed;
+            font-size: 24px;
+            font-weight: 600;
+            color: rgba(150, 150, 150, 0.3);
+            pointer-events: none;
+            z-index: 0;
+            user-select: none;
+        }
+
+        .watermark-corner.tl { top: 20px; left: 20px; }
+        .watermark-corner.tr { top: 20px; right: 20px; }
+        .watermark-corner.bl { bottom: 20px; left: 20px; }
+        .watermark-corner.br { bottom: 20px; right: 20px; }
 
         .container { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
 
@@ -408,6 +424,10 @@
 </head>
 <body>
     <div class="watermark">江苏易加云</div>
+    <div class="watermark-corner tl">易加云</div>
+    <div class="watermark-corner tr">易加云</div>
+    <div class="watermark-corner bl">易加云</div>
+    <div class="watermark-corner br">易加云</div>
     <div class="container">
         <header class="header">
             <div class="brand">
