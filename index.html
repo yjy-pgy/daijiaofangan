@@ -26,9 +26,24 @@
             padding: 30px 20px;
             line-height: 1.6;
             color: var(--text-primary);
+            position: relative;
         }
 
-        .container { max-width: 900px; margin: 0 auto; }
+        .watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 80px;
+            font-weight: 700;
+            color: rgba(200, 200, 200, 0.12);
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 0;
+            user-select: none;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
 
         .header {
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
@@ -392,6 +407,7 @@
     </style>
 </head>
 <body>
+    <div class="watermark">江苏易加云</div>
     <div class="container">
         <header class="header">
             <div class="brand">
