@@ -44,6 +44,110 @@
             letter-spacing: 8px;
         }
 
+        .password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .password-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .password-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .password-box h2 {
+            color: var(--primary-blue);
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .password-box p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .password-input:focus {
+            border-color: var(--primary-blue-light);
+        }
+
+        .password-input.error {
+            border-color: #ef4444;
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .password-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .password-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 64, 175, 0.3);
+        }
+
+        .password-btn:active {
+            transform: translateY(0);
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 13px;
+            margin-top: 10px;
+            min-height: 20px;
+        }
+
+        .main-content {
+            display: none;
+        }
+
+        .main-content.visible {
+            display: block;
+        }
+
         .container { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
 
         .header {
@@ -462,8 +566,19 @@
     </style>
 </head>
 <body>
-    <div class="watermark">易加云</div>
-    <div class="container">
+    <div class="password-overlay" id="passwordOverlay">
+        <div class="password-box">
+            <h2>🔐 访问受限</h2>
+            <p>请输入查看密码以继续</p>
+            <input type="password" class="password-input" id="passwordInput" placeholder="请输入密码" onkeypress="handleKeyPress(event)">
+            <button class="password-btn" onclick="checkPassword()">确认</button>
+            <div class="error-message" id="errorMessage"></div>
+        </div>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        <div class="watermark">易加云</div>
+        <div class="container">
         <header class="header">
             <div class="brand">
                 <div class="brand-icon">♡</div>
@@ -715,5 +830,41 @@
             <div class="footer-copyright">© 2026 江苏易加云网络科技有限公司版权所有</div>
         </footer>
     </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const input = document.getElementById('passwordInput');
+            const overlay = document.getElementById('passwordOverlay');
+            const mainContent = document.getElementById('mainContent');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            if (input.value === 'yjypgy') {
+                overlay.classList.add('hidden');
+                setTimeout(() => {
+                    mainContent.classList.add('visible');
+                }, 500);
+            } else {
+                input.classList.add('error');
+                errorMessage.textContent = '密码错误，请重试';
+                input.value = '';
+                input.focus();
+                
+                setTimeout(() => {
+                    input.classList.remove('error');
+                }, 500);
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                checkPassword();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('passwordInput').focus();
+        });
+    </script>
 </body>
 </html>
