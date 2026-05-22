@@ -97,27 +97,6 @@
             margin-top: 3px;
         }
 
-        .export-btn {
-            background: white;
-            color: var(--primary-blue);
-            border: none;
-            padding: 12px 32px;
-            font-size: 15px;
-            font-weight: 600;
-            border-radius: 28px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .export-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
         .content {
             background: white;
             border-radius: 20px;
@@ -436,9 +415,7 @@
                     <div class="stat-label">门店赋能</div>
                 </div>
             </div>
-            <button id="exportBtn" class="export-btn" onclick="window.print()">
-                <span>📄 打印/导出</span>
-            </button>
+
         </header>
 
         <div id="content" class="content">
